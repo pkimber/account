@@ -18,6 +18,22 @@ def legacy_vat_code():
     return VatCode.objects.get(slug=VatCode.LEGACY).pk
 
 
+class FinanceError(Exception):
+
+    def __init__(self, value):
+        Exception.__init__(self)
+        self.value = value
+
+    def __str__(self):
+        return repr('%s, %s' % (self.__class__.__name__, self.value))
+
+
+class VatCodeManager(models.Manager):
+
+    def exempt(self):
+        return self.model.objects.get(slug=self.model.EXEMPT)
+
+
 class VatCode(TimeStampedModel):
     """VAT code and rates.
 
@@ -37,6 +53,7 @@ class VatCode(TimeStampedModel):
 
     """
 
+    EXEMPT  = 'E'
     LEGACY  = 'L'
     STANDARD  = 'S'
 
@@ -44,8 +61,29 @@ class VatCode(TimeStampedModel):
     description = models.CharField(max_length=100)
     rate = models.DecimalField(max_digits=5, decimal_places=3)
     deleted = models.BooleanField(default=False)
+    objects = VatCodeManager()
+
+    class Meta:
+        verbose_name = 'VAT code'
+
+    def __str__(self):
+        return "code: {}, rate: {}".format(
+            self.slug,
+            self.rate,
+        )
 
 reversion.register(VatCode)
+
+
+class VatSettingsManager(models.Manager):
+
+    def settings(self):
+        try:
+            return self.model.objects.get()
+        except self.model.DoesNotExist:
+            raise FinanceError(
+                "VAT settings have not been set-up in admin"
+            )
 
 
 class VatSettings(SingletonModel):
@@ -56,6 +94,7 @@ class VatSettings(SingletonModel):
         related_name='+'
     )
     vat_number = models.CharField(max_length=12, blank=True)
+    objects = VatSettingsManager()
 
     class Meta:
         verbose_name = 'VAT settings'
