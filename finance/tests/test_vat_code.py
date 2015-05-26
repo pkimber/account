@@ -4,7 +4,7 @@ import pytest
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from account.models import VatCode
+from finance.models import VatCode
 
 
 @pytest.mark.django_db

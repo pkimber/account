@@ -104,10 +104,10 @@ MIDDLEWARE_CLASSES = (
     'reversion.middleware.RevisionMiddleware',
 )
 
-ROOT_URLCONF = 'example_account.urls'
+ROOT_URLCONF = 'example_finance.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'example_account.wsgi.application'
+WSGI_APPLICATION = 'example_finance.wsgi.application'
 
 TEMPLATES = [
     {
@@ -148,9 +148,9 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'account',
     'base',
-    'example_account',
+    'example_finance',
+    'finance',
     'login',
 )
 

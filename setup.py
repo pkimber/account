@@ -19,20 +19,20 @@ def get_readme():
 
 
 setup(
-    name='kb-account',
-    packages=['account', 'account.tests'],
+    name='kb-finance',
+    packages=['finance', 'finance.tests'],
     package_data={
-        'account': [
+        'finance': [
             'static/*.*',
             'templates/*.*',
-            'templates/account/*.*',
+            'templates/finance/*.*',
         ],
     },
     version='0.1.14',
-    description='account',
+    description='finance',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
-    url='git@github.com:pkimber/account.git',
+    url='git@github.com:pkimber/finance.git',
     classifiers=[
         'Development Status :: 1 - Planning',
         'Environment :: Console',

@@ -21,7 +21,7 @@ def _init_state(model, slug, description, rate, deleted):
 
 
 def default_state(apps, schema_editor):
-    state = apps.get_model('account', 'VatCode')
+    state = apps.get_model('finance', 'VatCode')
     _init_state(state, 'E', 'Exempt (e.g. education and training)', Decimal('0'), False)
     _init_state(state, 'L', 'Legacy', Decimal('0'), True)
     _init_state(state, 'S', 'Standard', Decimal('0.20'), False)
@@ -31,7 +31,7 @@ def default_state(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('account', '0001_initial'),
+        ('finance', '0001_initial'),
     ]
 
     operations = [
