@@ -6,6 +6,7 @@ from django.db import models
 import reversion
 
 from base.model_utils import TimeStampedModel
+from base.singleton import SingletonModel
 
 
 def default_vat_code():
@@ -45,3 +46,24 @@ class VatCode(TimeStampedModel):
     deleted = models.BooleanField(default=False)
 
 reversion.register(VatCode)
+
+
+class VatSettings(SingletonModel):
+
+    standard_vat_code = models.ForeignKey(
+        VatCode,
+        default=default_vat_code,
+        related_name='+'
+    )
+    vat_number = models.CharField(max_length=12, blank=True)
+
+    class Meta:
+        verbose_name = 'VAT settings'
+
+    def __str__(self):
+        return "Standard: {}, VAT Number: {}".format(
+            self.standard_vat_code.rate,
+            self.vat_number,
+        )
+
+reversion.register(VatSettings)

@@ -27,7 +27,6 @@ def default_state(apps, schema_editor):
     _init_state(state, 'S', 'Standard', Decimal('0.20'), False)
     _init_state(state, 'Z', 'Zero-Rated (outside the EC)', Decimal('0'), False)
 
-
 class Migration(migrations.Migration):
 
     dependencies = [
