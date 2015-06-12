@@ -1,9 +1,7 @@
-recursive-include enquiry/static *
-recursive-include enquiry/templates *
 
 include LICENSE
 include README
 include requirements/*.txt
 include *.txt
 
-prune example_enquiry/
+prune example_finance/

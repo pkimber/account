@@ -19,17 +19,10 @@ def get_readme():
 
 
 setup(
-    name='kb-finance',
-    packages=['finance', 'finance.tests'],
-    package_data={
-        'finance': [
-            'static/*.*',
-            'templates/*.*',
-            'templates/finance/*.*',
-        ],
-    },
-    version='0.1.14',
-    description='finance',
+    name='kb-enquiry',
+    packages=['finance', 'finance.migrations', 'finance.tests'],
+    version='0.1.01',
+    description='enquiry',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
     url='git@github.com:pkimber/finance.git',
