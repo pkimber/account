@@ -48,6 +48,7 @@ class VatCode(TimeStampedModel):
     https://www.gov.uk/rates-of-vat-on-different-goods-and-services
 
     No VAT is charged on goods or services that are:
+
     - exempt from VAT
     - outside the scope of the UK VAT system
 
