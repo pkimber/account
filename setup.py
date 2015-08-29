@@ -21,7 +21,7 @@ def get_readme():
 setup(
     name='kb-finance',
     packages=['finance', 'finance.migrations', 'finance.tests'],
-    version='0.1.03',
+    version='0.1.04',
     description='finance',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
@@ -35,6 +35,7 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Framework :: Django :: 1.8',
         'Topic :: Office/Business :: Scheduling',
     ],
     long_description=get_readme(),
