@@ -21,10 +21,10 @@ def get_readme():
 setup(
     name='kb-finance',
     packages=['finance', 'finance.migrations', 'finance.tests'],
-    version='0.1.04',
+    version='0.1.05',
     description='finance',
-    author='Patrick Kimber',
-    author_email='code@pkimber.net',
+    author='Malcolm Dinsmore',
+    author_email='m.dinsmore@talk21.com',
     url='git@github.com:pkimber/finance.git',
     classifiers=[
         'Development Status :: 1 - Planning',
