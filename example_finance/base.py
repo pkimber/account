@@ -142,8 +142,8 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'captcha',
     'compressor',
-    'nocaptcha_recaptcha',
     'reversion',
 )
 
