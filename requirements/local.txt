@@ -4,6 +4,7 @@
 -e ../login
 factory-boy
 psycopg2
+pytest-coverage
 pytest-django
 pytest-flakes
 pytest-pep8
