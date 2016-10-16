@@ -58,9 +58,13 @@ class VatCode(TimeStampedModel):
     LEGACY  = 'L'
     STANDARD  = 'S'
 
-    slug = models.SlugField(max_length=10)
+    slug = models.SlugField(max_length=10, unique=True)
     description = models.CharField(max_length=100)
-    rate = models.DecimalField(max_digits=5, decimal_places=3)
+    rate = models.DecimalField(
+        max_digits=5,
+        decimal_places=3,
+        help_text="For a 20% VAT rate, enter '0.200'",
+    )
     deleted = models.BooleanField(default=False)
     objects = VatCodeManager()
 
