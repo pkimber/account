@@ -21,7 +21,7 @@ def get_readme():
 setup(
     name='kb-finance',
     packages=['finance', 'finance.migrations', 'finance.tests'],
-    version='0.1.07',
+    version='0.1.08',
     description='finance',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
